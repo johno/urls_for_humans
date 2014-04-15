@@ -1,9 +1,9 @@
 # Urls For Humans
 
-Urls For Humans allows you to apply meaningful names to your Rails Application's urls by leveraging what happens under the covers with `Model.find(params[:id])` and `to_param`. So long as the url is prefixed with the model's id, the lookup will happen exactly how we intend it to with a few key benefits:
+Urls For Humans is a gem allows you to apply meaningful names to your Rails Application's urls by leveraging what happens under the covers with `Model.find(params[:id])` and `to_param`. So long as the url is prefixed with the model's `id`, the lookup will happen exactly how we intend it to with a few key benefits:
 
-  * Simplicity
-  * Lightweight
+  * Simple thanks to ActiveSupport.
+  * Lightweight, weighing in at 20 something lines of added gem code to your Rails app (since ActiveSupport is already a dependency).
   * Persistent urls because changes the the latter portions of a param won't affect it's lookup.
 
 ## Installation
@@ -64,6 +64,26 @@ link_to user.first_name, user
 ```
 
 Additionally, any link that hits the internet will persist because `1-random-content`, `1-other-random-content`, and `1-john-doe` will all route to the same resource.
+
+### I don't like it when you leverage executable class bodies
+
+That's fine. You can add a method to your model, instead.
+
+```ruby
+class User < ActiveRecord::Base
+  extend UrlsForHumans
+
+  # ...
+
+  def humanly_attrs
+    [:first_name, :last_name, :favorite_food]
+  end
+
+  # ...
+end
+```
+
+This will result in `"#{ id }-#{ first_name }-#{ last_name }-#{ favorite_food }"`.
 
 ## Resources
 
