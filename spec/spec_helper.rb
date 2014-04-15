@@ -11,7 +11,7 @@ RSpec.configure do |config|
 end
 
 class User
-  extend UrlsForHumans
+  include UrlsForHumans
 
   urls_for_humans :first_name, :last_name
 
