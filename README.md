@@ -59,6 +59,11 @@ link_to user.first_name, user
 
 Additionally, any link that hits the internet will persist because `1-random-content`, `1-other-random-content`, and `1-john-doe` will all route to the same resource.
 
+## Resources
+
+  * <https://github.com/norman/friendly_id>
+  * <https://gist.github.com/cdmwebs/1209732>
+
 ## Contributing
 
 1. Fork it ( http://github.com/<my-github-username>/urls_for_humans/fork )
