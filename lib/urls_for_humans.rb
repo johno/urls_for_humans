@@ -1,4 +1,7 @@
-require "urls_for_humans/version"
+require 'urls_for_humans/version'
+
+require 'active_support/inflector'
+require 'active_support/core_ext/object/blank'
 
 module UrlsForHumans
   def self.extended(model_class)
@@ -23,7 +26,7 @@ module UrlsForHumans
   module Model
     def to_param
       self.class.humanly_attrs.dup.unshift(:id).map do |attrib|
-        send(attrib).to_s.parameterize
+        ActiveSupport::Inflector.parameterize(send(attrib).to_s)
       end.reject(&:blank?).join('-')
     end
   end
