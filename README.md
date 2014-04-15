@@ -1,6 +1,10 @@
-# UrlsForHumans
+# Urls For Humans
 
-TODO: Write a gem description
+Urls For Humans allows you to apply meaningful names to your Rails Application's urls by leveraging what happens under the covers with `Model.find(params[:id])` and `to_param`. So long as the url is prefixed with the model's id, the lookup will happen exactly how we intend it to with a few key benefits:
+
+  * Simplicity
+  * Lightweight
+  * Persistent urls because changes the the latter portions of a param won't affect it's lookup.
 
 ## Installation
 
@@ -18,7 +22,42 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+
+To use Urls For Humans you need to extend the `UrlsForHumans` module, and call the class method `urls_for_humans`:
+
+```ruby
+class User < ActiveRecord::Base
+  extend UrlsForHumans
+
+  # ...
+
+  urls_for_humans :first_name, :last_name
+
+  # ...
+end
+```
+
+The `urls_for_humans` method can be a collection of any information that you'd like to include in the url. For example, with the above class we'd result in:
+
+```ruby
+u = User.create(first_name: 'John', last_name: 'Otander')
+
+u.to_param
+# => '1-john-otander'
+
+u.first_name = nil
+u.to_param
+# => '1-otander'
+```
+
+With this solution, an ActiveRecord object will always produce the correct url throughout the application:
+
+```ruby
+link_to user.first_name, user
+# => <a href="http://localhost:3000/users/1-john-otander" 
+```
+
+Additionally, any link that hits the internet will persist because `1-random-content`, `1-other-random-content`, and `1-john-doe` will all route to the same resource.
 
 ## Contributing
 
