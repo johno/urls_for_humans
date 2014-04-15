@@ -10,15 +10,21 @@ Urls For Humans allows you to apply meaningful names to your Rails Application's
 
 Add this line to your application's Gemfile:
 
-    gem 'urls_for_humans'
+```ruby
+gem 'urls_for_humans'
+```
 
 And then execute:
 
-    $ bundle
+```bash
+$ bundle
+```
 
 Or install it yourself as:
 
-    $ gem install urls_for_humans
+```bash
+$ gem install urls_for_humans
+```
 
 ## Usage
 
