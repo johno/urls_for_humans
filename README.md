@@ -6,9 +6,13 @@ Urls for Humans is a gem that allows you to apply meaningful names to your Rails
   * Lightweight, weighing in at 20 something lines of added gem code to your Rails app (since ActiveSupport is already a dependency).
   * Persistent urls because changes the the latter portions of a param won't affect it's lookup.
 
-__Note:__ This is a different approach to friendly URLs than the `friendly_id` gem because it doesn't modify the db queries themselves. The `urls_for_humans` approach essentiall allows all urls fitting the form `resource/<id>-<anything else>` to route to `resource/:id` because `to_i` is called on the `id` parameter.
+### Why use Urls for Humans in place of Friendly ID?
 
-Personally, I prefer this approach because a link out there in the wild to a user's profile `users/previous_username` isn't broken when the change their username to `users/new_username` because the slug has been changed.
+This is a different approach to friendly URLs than the `friendly_id` gem because it doesn't modify the db queries themselves. The `urls_for_humans` approach essentiall allows all urls fitting the form `resource/<id>-<anything else>` to route to `resource/:id` because `to_i` is called on the `id` parameter.
+
+Personally, I prefer this approach because a link out there in the wild to a user's profile `users/previous_username` isn't broken (404'd) when they change their username to `users/new_username` because the slug has been changed.
+
+Also, I'm biased.
 
 ## Installation
 
