@@ -4,7 +4,7 @@ Urls for Humans is a gem that allows you to apply meaningful names to your Rails
 
   * Simple thanks to ActiveSupport.
   * Lightweight, weighing in at 20 something lines of added gem code to your Rails app (since ActiveSupport is already a dependency).
-  * Persistent urls because changes the the latter portions of a param won't affect it's lookup.
+  * Persistent urls because changes in the latter portions of a param won't affect it's lookup.
 
 ### Why use Urls for Humans in place of Friendly ID?
 
