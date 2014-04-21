@@ -91,7 +91,7 @@ class User < ActiveRecord::Base
 end
 ```
 
-This will result in `"#{ id }-#{ first_name }-#{ last_name }-#{ favorite_food }"`.
+This will result in `"#{ id }-#{ first_name }-#{ last_name }-#{ favorite_food }"`. Yay.
 
 ## Resources
 
