@@ -1,5 +1,7 @@
 # Urls for Humans
 
+[![Build Status](https://travis-ci.org/johnotander/urls_for_humans.svg?branch=master)](https://travis-ci.org/johnotander/urls_for_humans)
+
 Urls for Humans is a gem that allows you to apply meaningful names to your Rails Application's urls by leveraging what happens under the covers with `Model.find(params[:id])`, `to_i`, and `to_param`. This makes it easy to turn `users/1` to `users/1-john-otander`. So long as the url is prefixed with the model's `id` (which Urls for Humans ensures), the lookup will happen exactly how we intend it to with a few key benefits:
 
   * Simple thanks to ActiveSupport.
