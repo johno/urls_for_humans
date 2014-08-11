@@ -6,10 +6,6 @@ require 'urls_for_humans'
 
 I18n.enforce_available_locales = false
 
-RSpec.configure do |config|
-  config.color_enabled = true
-end
-
 class User
   include UrlsForHumans
 
