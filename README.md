@@ -43,7 +43,7 @@ To use Urls For Humans you need to extend the `UrlsForHumans` module, and call t
 
 ```ruby
 class User < ActiveRecord::Base
-  extend UrlsForHumans
+  include UrlsForHumans
 
   # ...
 
@@ -81,7 +81,7 @@ That's fine. You can add a method to your model, instead.
 
 ```ruby
 class User < ActiveRecord::Base
-  extend UrlsForHumans
+  include UrlsForHumans
 
   # ...
 
